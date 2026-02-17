@@ -63,6 +63,14 @@ def handle_text(message):
     global saldo
     text = message.text.lower()
 
+    if text == "reset":
+        global saldo, history
+            saldo = 0
+            history = []
+        bot.send_message(message.chat.id, 
+                     "♻️ Saldo dan riwayat berhasil direset.")
+        return
+    
     if text == "📊 status sisa uang":
         bot.send_message(message.chat.id,
                          f"💰 Sisa dana kamu\nRp {format_rupiah(saldo)}")
@@ -76,13 +84,7 @@ def handle_text(message):
                          "📜 Riwayat Transaksi\n\n" + "\n".join(history))
         return
         
-     if text == "reset":
-        global saldo, history
-            saldo = 0
-            history = []
-        bot.send_message(message.chat.id, 
-                     "♻️ Saldo dan riwayat berhasil direset.")
-        return
+    
 
     if text == "saldo" or text == "/saldo":
         bot.send_message(message.chat.id,
