@@ -97,7 +97,8 @@ if text.startswith("-"):
     saldo -= nominal
     history.append(f"➖ {format_rupiah(nominal)} | Penyesuaian")
     bot.send_message(message.chat.id,
-                     f"💳 Saldo dikurangi IDR {format_rupiah(nominal)}\nSisa dana: {format_rupiah(saldo)}")
+                     f"💳 Saldo dikurangi IDR {format_rupiah(nominal)}\n
+                     f"Sisa dana: IDR {format_rupiah(saldo)}"
     return
 
 
