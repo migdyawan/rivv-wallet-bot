@@ -64,9 +64,10 @@ def handle_text(message):
     text = message.text.lower()
 
     if text == "reset":
-            saldo = 0
-            history.clear()
-        bot.send_message(message.chat.id, "♻️ Saldo dan riwayat berhasil direset.")
+        saldo = 0
+        history.clear()
+        bot.send_message(
+            message.chat.id, "♻️ Saldo dan riwayat berhasil direset.")
         return
     
     if text == "📊 status sisa uang":
