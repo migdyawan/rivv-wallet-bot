@@ -109,7 +109,7 @@ def handle_text(message):
     dompet = detect_dompet(text)
     tanggal = datetime.now().strftime("%d-%m-%Y")
 
-    if any(word in text for word in ["gaji", "masuk", "income", "bonus"]):
+    if any(word in text for word in ["isi", "masuk", "income", "bonus"]):
         saldo += nominal
         history.append(f"➕ {format_rupiah(nominal)} | Pemasukan")
         bot.send_message(message.chat.id,
