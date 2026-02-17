@@ -14,15 +14,19 @@ def format_rupiah(angka):
     return f"{angka:,}".replace(",", ".")
 
 def parse_nominal(text):
-    text = text.lower()
+    text = text.lower().replace(".", "").replace(",", "")
+    
     angka = re.search(r'(\d+)', text)
     if not angka:
         return 0
+    
     nilai = int(angka.group(1))
+
     if "jt" in text:
         nilai *= 1000000
     elif "rb" in text:
         nilai *= 1000
+
     return nilai
 
 def detect_dompet(text):
