@@ -90,16 +90,16 @@ def handle_text(message):
     if text == "saldo" or text == "/saldo":
         bot.send_message(message.chat.id,
                      f"💳 Sisa dana kamu\nRp {format_rupiah(saldo)}")
-    return
+        return
 
-if text.startswith("-"):
-    nominal = parse_nominal(text)
-    saldo -= nominal
-    history.append(f"➖ {format_rupiah(nominal)} | Penyesuaian")
-    bot.send_message(message.chat.id,
-                     f"💳 Saldo dikurangi IDR {format_rupiah(nominal)}\n"
-                     f"Sisa dana: IDR {format_rupiah(saldo)}")
-    return
+    if text.startswith("-"):
+        nominal = parse_nominal(text)
+        saldo -= nominal
+        history.append(f"➖ {format_rupiah(nominal)} | Penyesuaian")
+        bot.send_message(message.chat.id,
+                         f"💳 Saldo dikurangi IDR {format_rupiah(nominal)}\n"
+                         f"Sisa dana: IDR {format_rupiah(saldo)}")
+        return
 
 
     nominal = parse_nominal(text)
